@@ -19,16 +19,19 @@ public class ChatbotController {
 
     @PostMapping
     public ResponseEntity<ApiResponse>getCoinDetails(@RequestBody PromptBody prompt) throws Exception {
-        chatbotService.getCoinDetails(prompt.getPrompt());
-        ApiResponse response=new ApiResponse();
-        response.setMessage(prompt.getPrompt());
+        ApiResponse response= chatbotService.getCoinDetails(prompt.getPrompt());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
     @PostMapping("/simple")
     public ResponseEntity<String>simpleChatHandler(@RequestBody PromptBody prompt) throws Exception {
         String response=chatbotService.simpleChat(prompt.getPrompt());
-//        ApiResponse response=new ApiResponse();
+//       ApiResponse response=new ApiResponse();
 //        response.setMessage(prompt.getPrompt());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+    @GetMapping
+    public ResponseEntity<String> getChatInfo() {
+        return new ResponseEntity<>("This endpoint only supports POST requests.", HttpStatus.OK);
+    }
+
 }
