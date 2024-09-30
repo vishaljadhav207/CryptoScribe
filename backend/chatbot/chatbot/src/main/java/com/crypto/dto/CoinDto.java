@@ -24,8 +24,9 @@ public class CoinDto {
   private double totalSupply;
   private long ath;
   private long authChangePercentage;
-  private Date altDate;
+  private Date athDate;
   private long altChangePercentage;
+  private Date altDate;
   private Date lastUpdated;
 
 
