@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useEffect, useRef, useState } from "react";
 import Message from "./Message";
 import PromptMessage from "./PromptMessage";
@@ -12,22 +12,22 @@ const ChatBox = () => {
 
   const fetchCoinDetails = async (prompt) => {
     setLoading(true);
+    
     try {
-      const response = await api.post("/ai/chat", { prompt }); // Make sure the backend expects 'prompt'
+     
+      const response = await api.post("/ai/chat", { prompt });
       const data = response.data;
-      const ans = { message: data.message, role: "modal" }; // Make sure backend sends 'message'
-      const userMessage = { message: prompt, role: "user" };
+      const ans={message:data.message,role:"modal"}
+      const userMessage={message:prompt,role:"user"}
       setResponses([...responses, userMessage, ans]);
       setLoading(false);
-      console.log("response: ", data); // Check what the backend is actually sending
+      console.log("response : ", data)
     } catch (error) {
       setLoading(false);
-      console.log("error: ", error);
+      console.log("error ", error);
       setError(error.response?.data);
     }
   };
-  
-  
   useEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollIntoView({ behavior: "smooth" });
