@@ -5,7 +5,7 @@ import PromptMessage from "./PromptMessage";
 import api from "../api/api";
 const ChatBox = () => {
   const chatContainerRef = useRef(null);
-  const [prompt, setPrompt] = useState("");
+  const [prompt, setPrompt] = useState(""); 
   const [responses, setResponses] = useState([]);
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
