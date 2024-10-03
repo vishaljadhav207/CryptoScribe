@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/ai/chat")
+@CrossOrigin(origins = "http://localhost:3000") 
 public class ChatbotController {
 
     private final ChatbotService chatbotService;
